@@ -10,8 +10,7 @@ use serde_json::{json, Value};
 struct FunctionConfigData {
     pub table_name: String,
     pub primary_key: String,
-    pub index_data: HashMap<String, String>,
-    pub token_claims: Value,
+    pub index_data: Option<HashMap<String, String>>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -51,7 +50,6 @@ mod tests {
                     "index_data": {
                         "team_id": "team_id-index"
                     },
-                    "token_claims": {}
                 }),
                 json!({}),
             ),
